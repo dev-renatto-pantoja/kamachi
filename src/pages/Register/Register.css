@@ -1,0 +1,65 @@
+.register{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.registerTitle{
+  display: flex;
+  flex-direction: column;
+  margin: 3rem 2rem 0 2rem; 
+}
+
+.registerTitle h1{
+  font-size: 1.75rem;
+  align-self: center;
+  margin:0.5rem 0;
+}
+.registerTitle p{
+  margin:0;
+}
+.registerForm{
+  margin:.5rem 2rem;
+  width: calc(100% - 4rem);
+}
+
+.registerInput{
+  display: flex;
+  flex-direction: column;
+}
+
+.divInputName{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.divInputName input{
+  display: flex;
+  max-width: calc(40% - 0.5rem);
+}
+.registerInput input{
+  margin-top: 1rem;
+  font-size: 1rem;
+  padding: 0.675rem 0.813rem;
+  border-radius: 0.5rem;
+  border:0;
+  box-shadow: 0 0 1px 1px grey;
+}
+
+.selectDistrict{
+  margin-top: 1rem;
+  font-size: 1rem;
+  padding: 0.675rem 0.813rem;
+  border-radius: 0.5rem;
+}
+
+.CreateAccountButton {
+  margin-top: 1rem;
+  width: 100%;
+  border:0;
+  color:#fff;
+  background: #ef4961;
+  box-shadow: 0 0 1px 1px #ef4961;
+}
