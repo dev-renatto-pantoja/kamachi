@@ -23,10 +23,11 @@ function Signin() {
         <h1>Kamachi</h1>
       </div>
       <form className="loginForm">
+
         <div className="loginInput">
           <input 
-            name="username"
-            value={values.username || ""}
+            name="email"
+            value={values.email || ""}
             onChange={handleForm}
             placeholder="Correo Electronico" 
             type="text" />

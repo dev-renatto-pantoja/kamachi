@@ -48,8 +48,8 @@ function Register() {
               />
             </div>
             <input 
-              name="correo" 
-              value={values.correo || ""} 
+              name="email" 
+              value={values.email || ""} 
               onChange={handleForm} 
               placeholder="Correo" 
               type="text" 
