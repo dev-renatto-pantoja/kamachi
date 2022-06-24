@@ -1,21 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import { authRegister } from '../../auth/auth';
 import { distritos } from '../../distritos';
 import useForm from '../../hooks/useForm';
 import "./Register.css";
 
 
 function Register() {
-
+  const [dataIsOk, setDataIsOK] = useState(true);
   const [distritosDisponibles, setDistritosDisponibles] = useState([]);
   const [values, handleForm] = useForm();
 
   let navigate = useNavigate();
 
-  const onRegister = (e) => {
+  const onRegister = async (e) => {
     e.preventDefault();
     console.log(values);
-    navigate("/login")
+    try {
+      console.log(values);
+      const res = await authRegister(values);
+      if (!res.ok) {
+        setDataIsOK(false);
+        console.log(res);
+      } else {
+        setDataIsOK(true);
+        navigate("/login")
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
+
+
   }
   useEffect(() => {
 
@@ -31,53 +47,64 @@ function Register() {
         </div>
         <form className="registerForm">
           <div className="registerInput">
+            {!dataIsOk && <p className="errorMsg">Complete todos los campos</p>}
             <div className="divInputName">
-              <input 
-                name="nombre" 
-                value={values.nombre || ""} 
-                onChange={handleForm} 
-                placeholder="Nombre" 
+              <input
+                name="nombre"
+                value={values.nombre || ""}
+                onChange={handleForm}
+                placeholder="Nombre"
                 type="text"
               />
-              <input 
-                name="apellido" 
-                value={values.apellido || ""} 
-                onChange={handleForm} 
-                placeholder="Apellido" 
-                type="text" 
+              <input
+                name="apellido"
+                value={values.apellido || ""}
+                onChange={handleForm}
+                placeholder="Apellido"
+                type="text"
               />
             </div>
-            <input 
-              name="email" 
-              value={values.email || ""} 
-              onChange={handleForm} 
-              placeholder="Correo" 
-              type="text" 
+            <input
+              name="email"
+              value={values.email || ""}
+              onChange={handleForm}
+              placeholder="Correo"
+              type="text"
             />
-            <input 
-              name="telefono" 
-              value={values.telefono || ""} 
-              onChange={handleForm} 
-              placeholder="Telefono" 
-              type="text" 
+            <input
+              name="telefono"
+              value={values.telefono || ""}
+              onChange={handleForm}
+              placeholder="Telefono"
+              type="text"
             />
-            <input 
-              name="password" 
-              values={values.password || ""} 
-              onChange={handleForm} 
-              placeholder="Contraseña" 
-              type="password" 
+            <input
+              name="password"
+              value={values.password || ""}
+              onChange={handleForm}
+              placeholder="Contraseña"
+              type="password"
             />
-            <select 
-              name="distrito" 
-              className="selectDistrict" 
-              value={values.distrito || ""} 
-              onChange={handleForm} 
+            <div className="rolLoginInput">
+              <p>Ofreceras algun servicio?:</p>
+              <select
+                name="rol"
+                value={values.rol}
+                onChange={handleForm}>
+                <option value="vendedor">Si</option>
+                <option value="cliente">No</option>
+              </select>
+            </div>
+            <select
+              name="distrito"
+              className="selectDistrict"
+              value={values.distrito || ""}
+              onChange={handleForm}
             >
               {distritos.length ? (
                 distritosDisponibles.map((distritoDisponible, key) =>
-                  <option 
-                    key={key} 
+                  <option
+                    key={key}
                     value={distritoDisponible}
                   >{distritoDisponible}</option>)) : ""
               }
