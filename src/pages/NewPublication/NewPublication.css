@@ -1,0 +1,98 @@
+.mainNewPublication {
+  margin: 12vh 1rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainNewPublication h2 {
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.inputDataPublicationContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.dataServiceContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+
+.selectService {
+  margin-top: 1rem;
+  padding: 0.625rem 0.875rem;
+  border-radius: 0.5rem;
+}
+
+.newServiceDataInput {
+  display: flex;
+  flex-direction: column;
+}
+
+.newServiceDataInput>span {
+  margin: 0.5rem 0;
+}
+
+.newServiceDataInput>input {
+  padding: 0.625rem 0.875rem;
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.newServiceShadow {
+  padding: 1rem;
+  background: #fff;
+  border-radius: 1rem;
+}
+
+.newServiceButtons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.newServiceButton {
+  display: inline-flex;
+  margin: 0;
+  margin-top: 1rem;
+  padding: 0.625rem 0.875rem;
+  background: #3D854D;
+  color: #FBFBFB;
+  border-radius: 0.5rem;
+  border: 1px solid #fff;
+}
+
+.cancelNewServiceButton {
+  display: inline-flex;
+  margin: 0;
+  margin-top: 1rem;
+  padding: 0.625rem 0.875rem;
+  background: red;
+  color: #fff;
+  border-radius: 0.5rem;
+}
+
+
+.inputDataPublicationContainer>input {
+  margin: 1rem 0;
+  padding: 0.625rem 0.875rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.publishButton {
+  display: flex;
+  align-self: center;
+  padding: 0.625rem 1rem;
+  background: rgb(82, 124, 240);
+  color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1px 1px rgba(82, 124, 240, 0.5);
+}
+
+.hidden {
+  display: none;
+}

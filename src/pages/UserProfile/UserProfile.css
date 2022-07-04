@@ -1,0 +1,68 @@
+.mainProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 11vh 1rem 0 1rem;
+}
+
+.profileTitle {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.userPhoto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+  width: 20vh;
+  height: 20vh;
+  background: #fff;
+  border-radius: 50%;
+  border: 1px double rgba(0, 0, 0, 0.4);
+}
+
+.userData {
+  display: flex;
+  margin: 0 2rem;
+  width: calc(100vw - 4rem);
+  flex-direction: column;
+}
+
+.userData span {
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
+
+.userData input {
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 0.2rem 0.625rem;
+  font-size: 1rem;
+}
+
+.userDataInput {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+}
+
+
+.saveData {
+  background: #3061e4;
+  color: #fff;
+}
+
+.editHidden {
+  display: none;
+}
+
+.saveHidden {
+  display: none;
+}
+.hidden{
+  display: none;
+}

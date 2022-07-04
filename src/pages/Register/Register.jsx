@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { authRegister } from '../../auth/auth';
+import useAuth from '../../hooks/useAuth';
 import { distritos } from '../../distritos';
 import useForm from '../../hooks/useForm';
 import "./Register.css";
@@ -10,7 +10,7 @@ function Register() {
   const [dataIsOk, setDataIsOK] = useState(true);
   const [distritosDisponibles, setDistritosDisponibles] = useState([]);
   const [values, handleForm] = useForm();
-
+  const { authRegister } = useAuth();
   let navigate = useNavigate();
 
   const onRegister = async (e) => {
@@ -34,7 +34,7 @@ function Register() {
 
   }
   useEffect(() => {
-
+    /*Traer distritos de base de datos*/
     setDistritosDisponibles(distritos);
   }, []);
 
@@ -91,6 +91,7 @@ function Register() {
                 name="rol"
                 value={values.rol}
                 onChange={handleForm}>
+                <option value="">Seleccionar rol</option>
                 <option value="vendedor">Si</option>
                 <option value="cliente">No</option>
               </select>
@@ -101,6 +102,7 @@ function Register() {
               value={values.distrito || ""}
               onChange={handleForm}
             >
+              <option value="">Seleccionar distrito</option>
               {distritos.length ? (
                 distritosDisponibles.map((distritoDisponible, key) =>
                   <option

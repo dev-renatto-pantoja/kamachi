@@ -1,40 +1,21 @@
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { AppContext } from './context/AppContext';
+import useAuth from './hooks/useAuth';
 import Register from './pages/Register/Register';
 import Signin from "./pages/Signin/Signin";
 import { useContext, useEffect } from 'react';
-import { authRevalidateToken } from './auth/auth';
 import InitialPage from './pages/InitialPage/InitialPage';
+import ServiceDetail from './pages/ServiceDetail/ServiceDetail';
+import UserProfile from './pages/UserProfile/UserProfile';
+import NewPublication from './pages/NewPublication/NewPublication';
 
 function App() {
 
-  const { user, setUser } = useContext(AppContext);
+  const { user } = useContext(AppContext);
+  const { checkToken } = useAuth();
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token === "undefined" || !token) {
-      setUser({ autenticado: false });
-      console.log("usuario no logueado");
-    } else {
-      try {
-        const data = async () => {
-          const res = await authRevalidateToken();
-          localStorage.setItem('token', res.token);
-          localStorage.setItem('token-init-date', new Date().getTime());
-          setUser({
-            autenticado: true,
-            uid: res.uid,
-            nombre: res.nombre
-          })
-        }
-        data();
-
-      } catch (error) {
-        console.log(error);
-      }
-
-    }
-
+    checkToken();
   }, [])
 
 
@@ -53,7 +34,10 @@ function App() {
               : (
                 <>
                   <Route path="/" element={<InitialPage />} />
-                  <Route path="/*" element={<Navigate to="/" />} />
+                  <Route path="/login" element={<Navigate to="/" />} />
+                  <Route exact path="/servicio/:id" element={<ServiceDetail />} />
+                  <Route exact path="/perfil" element={<UserProfile />} />
+                  <Route exact path="/publicar" element={<NewPublication />} />
                 </>
               )
           }

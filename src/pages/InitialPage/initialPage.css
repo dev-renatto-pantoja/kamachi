@@ -1,0 +1,82 @@
+
+.filterContainer {
+  position: fixed;
+  top: 10vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 100vw;
+  background: #ebeaef;
+  z-index: 1;
+}
+
+.filterContainer input {
+  margin: 1rem 2rem;
+  border: none;
+  border-radius: 1.15rem;
+  font-size: 1rem;
+  padding: 0.625rem 0.875rem;
+  text-align: center;
+}
+
+.typeFilters {
+  display: flex;
+  margin: 0 1rem;
+  max-width: 100vw;
+  overflow-x: scroll;
+  padding-bottom: 1.25rem;
+}
+
+.typeFilters::-webkit-scrollbar{
+  display: none;
+}
+
+.typeFilter {
+  margin: 0 .5rem;
+  font-size: .8rem;
+  font-weight: 700;
+  display: flex;
+  padding: 0.625rem 0.875rem;
+  border-radius: 1rem;
+  background: #fff;
+  border:none;
+}
+.typeActive{
+  background: #000;
+  color:#fff;
+}
+
+.servicesContainer {
+  margin-top: calc(20vh + 2rem);
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.servicesTitleContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: .5rem 1.5rem 0 0;
+}
+.createPublicationButton{
+  display: block;
+  margin:0.5rem 0 0 0;
+  padding:0.5rem 0.875rem;
+  border:none;
+  background:rgb(82, 124, 240);
+  color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1px 1px rgba(82, 124,240, 0.1);
+}
+
+.servicesTitle {
+  margin: 0;
+  margin-top: 0.5rem;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1rem 0;
+}

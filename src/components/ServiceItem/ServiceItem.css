@@ -1,0 +1,35 @@
+.serviceItemcontainer{
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 0.875rem;
+  border-radius: 1rem;
+}
+.serviceItemcontainer:hover{
+  cursor: pointer;
+}
+
+.itemImageContainer{
+  width: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.itemImageContainer img{
+  max-width: 100%;
+}
+.itemDetailContainer{
+  display: flex;
+  flex-direction: column;
+}
+.itemTitle{
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+}
+.itemDescription{
+  display: block;
+  margin: 0;
+  font-size: 0.875rem;
+}

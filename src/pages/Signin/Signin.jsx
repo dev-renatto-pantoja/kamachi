@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { AppContext } from "../../context/AppContext";
 import { useNavigate } from "react-router-dom";
-import { authLogin } from "../../auth/auth";
+import useAuth from "../../hooks/useAuth";
 import useForm from "../../hooks/useForm";
 import "./Signin.css";
 
@@ -9,7 +9,7 @@ function Signin() {
   const [values, handleForm] = useForm();
   const [accountIsOk, setAccountIsOK] = useState(true);
   const { user, setUser } = useContext(AppContext);
-
+  const { authLogin } = useAuth();
   let navigate = useNavigate();
 
   const onLogin = async (e) => {
@@ -24,7 +24,8 @@ function Signin() {
           ...user,
           autenticado: true,
           uid: res.uid,
-          nombre:res.nombre
+          nombre: res.nombre,
+          rol: res.rol
         });
         localStorage.setItem('token', res.token);
         localStorage.setItem('token-init-date', new Date().getTime());
